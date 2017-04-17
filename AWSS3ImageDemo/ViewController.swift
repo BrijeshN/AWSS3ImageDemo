@@ -80,6 +80,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         
         // Configure AWS Cognito Credentials
+        // Replace it with your Cognito Identity pool id
         let myIdentityPoolId = "us-east-1:93c051ad-dfe4-491a-a164-7292a1c29103"
         
         let credentialsProvider:AWSCognitoCredentialsProvider = AWSCognitoCredentialsProvider(regionType:AWSRegionType.USEast1, identityPoolId: myIdentityPoolId)
@@ -90,6 +91,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // Set up AWS Transfer Manager Request
         let folderName = "testImage"
+        // Replace it with your AWS bucket name
         let S3BucketName = "cloudcomputingassignment3/\(folderName)"
         let remoteName = localFileName!
 
@@ -129,7 +131,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     DispatchQueue.main.async {
                         let image = UIImage(data: downloadedImageData as Data)
                         let myImageView:UIImageView = UIImageView()
-                        myImageView.frame = CGRect(x:16, y:129, width:343, height:215)
+                        myImageView.frame = CGRect(x:16, y:129, width:343, height:260)
                         myImageView.image = image
                         myImageView.contentMode = UIViewContentMode.scaleAspectFit
                         
